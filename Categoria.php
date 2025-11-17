@@ -1,0 +1,19 @@
+<?php
+class Categoria {
+    const NO_RECONOCIDO = 'NO_RECONOCIDO';
+    const ENTERO = 'ENTERO';
+    const DECIMAL = 'DECIMAL';
+    const IDENTIFICADOR = 'IDENTIFICADOR';
+    const PALABRA_RESERVADA = 'PALABRA_RESERVADA';
+    const CADENA_CARACTERES = 'CADENA_CARACTERES';
+    const COMENTARIO_LINEA = 'COMENTARIO_LINEA';
+    const COMENTARIO_BLOQUE = 'COMENTARIO_BLOQUE';
+    const OPERADOR_ARITMETICO = 'OPERADOR_ARITMETICO';
+    const OPERADOR_RELACIONAL = 'OPERADOR_RELACIONAL';
+    const OPERADOR_LOGICO = 'OPERADOR_LOGICO';
+    const OPERADOR_INCREMENTO = 'OPERADOR_INCREMENTO';
+    const LLAVE = 'LLAVE'; // Categoría para llaves '{' y '}'
+    const OPERADOR_ASIGNACION = 'OPERADOR_ASIGNACION'; // '='
+    const OPERADOR_COMPUESTO = 'OPERADOR_COMPUESTO'; // '+=', '-='
+    // TODO: Completar con más categorías si es necesario
+}

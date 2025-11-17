@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Analizador Léxico</title>
+</head>
+<body>
+    <h1>Analizador Léxico</h1>
+    <form id="formAnalizador">
+        <textarea id="codigoFuente" rows="10" cols="50" placeholder="Pega aquí tu código fuente"></textarea><br>
+        <button type="submit">Analizar</button>
+    </form>
+    <div id="resultado"></div>
+
+    <script>
+        document.getElementById('formAnalizador').onsubmit = function(e) {
+            e.preventDefault();
+            const codigo = document.getElementById('codigoFuente').value;
+            fetch('analizador.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ codigoFuente: codigo })
+            })
+            .then(response => response.json())
+            .then(data => {
+                mostrarTabla(data);
+            });
+        };
+
+        function mostrarTabla(tokens) {
+            if (!Array.isArray(tokens) || tokens.length === 0) {
+                document.getElementById('resultado').innerHTML = '<p>No se encontraron tokens.</p>';
+                return;
+            }
+            let html = '<table border="1" cellpadding="5" style="border-collapse:collapse; margin-top:10px;">';
+            html += '<thead><tr>' +
+                '<th>#</th>' +
+                '<th>Palabra</th>' +
+                '<th>Categoría</th>' +
+                '<th>Índice Inicio</th>' +
+                '<th>Índice Fin</th>' +
+                '</tr></thead><tbody>';
+            for (let i = 0; i < tokens.length; i++) {
+                html += '<tr>' +
+                    `<td>${i + 1}</td>` +
+                    `<td>${tokens[i].palabra}</td>` +
+                    `<td>${tokens[i].categoria}</td>` +
+                    `<td>${tokens[i].indiceInicio}</td>` +
+                    `<td>${tokens[i].indiceFin}</td>` +
+                    '</tr>';
+            }
+            html += '</tbody></table>';
+            document.getElementById('resultado').innerHTML = html;
+        }
+    </script>
+</body>
+</html>
