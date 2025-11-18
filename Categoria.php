@@ -1,5 +1,9 @@
 <?php
-class Categoria {
+class Categoria
+{
+    const ERROR_CADENA_SIN_CERRAR = 'ERROR_CADENA_SIN_CERRAR';
+    const ERROR_COMENTARIO_SIN_CERRAR = 'ERROR_COMENTARIO_SIN_CERRAR';
+    const ERROR_IDENTIFICADOR_LARGO = 'ERROR_IDENTIFICADOR_LARGO';
     const NO_RECONOCIDO = 'NO_RECONOCIDO';
     const ENTERO = 'ENTERO';
     const DECIMAL = 'DECIMAL';
@@ -15,5 +19,5 @@ class Categoria {
     const LLAVE = 'LLAVE'; // Categoría para llaves '{' y '}'
     const OPERADOR_ASIGNACION = 'OPERADOR_ASIGNACION'; // '='
     const OPERADOR_COMPUESTO = 'OPERADOR_COMPUESTO'; // '+=', '-='
-    // TODO: Completar con más categorías si es necesario
+    const CARACTER = 'CARACTER'; 
 }
